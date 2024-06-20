@@ -81,3 +81,7 @@
   ### Run the application with the endpoint:
 
      http://13.127.15.133:3000/
+
+     
+
+     aws ecs update-service --cluster node-ecs-cluster --service node-service --desired-count 0
