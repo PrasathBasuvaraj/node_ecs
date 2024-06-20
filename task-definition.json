@@ -1,0 +1,26 @@
+{
+    "family": "node-app",
+    "networkMode": "awsvpc",
+    "containerDefinitions": [
+        {
+            "name": "node-container",
+            "image": "169064206213.dkr.ecr.ap-south-1.amazonaws.com/node-repo:latest",
+            "cpu": 256,
+            "memoryReservation": 512,
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 3000,
+                    "protocol": "tcp"
+                }
+            ]
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "executionRoleArn": "ecsTaskExecutionRole",
+    "cpu": "256",
+    "memory": "512"
+}
