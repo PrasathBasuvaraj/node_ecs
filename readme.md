@@ -40,6 +40,7 @@
 
 
 ### To create VPC and Related Resources:
+
    --- First Create A VPC "  aws ec2 create-vpc --cidr-block 10.0.0.0/16 --tag-specifications  'ResourceType=vpc,Tags=[{Key=Name,Value=NODEVPC}]'  "
   
    ---Next  Create SUBNETS FOR THE VPC:
@@ -70,7 +71,13 @@
 
 ### To create a ECS CLUSTER:
    ---aws ecs create-cluster --cluster-name node-ecs-cluster
-
+### Register the Task_definition.json to the ECS
+   ---  aws ecs register-task-definition --cli-input-json file://task-definition.json
 
 ### To create SERVICE in ECS CLUSTER:
   ---  aws ecs create-service --cluster node-ecs-cluster --service-name node-service --task-definition node-app --desired-count 2 --launch-type FARGATE --network-configuration "awsvpcConfiguration={subnets=[subnet-05d63f1558dfe8565,subnet-0a57431efe1cca044],securityGroups=[sg-08317181751c7169f],assignPublicIp=ENABLED}"
+
+
+  ### Run the application with the endpoint:
+
+     http://13.127.15.133:3000/
