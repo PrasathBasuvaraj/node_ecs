@@ -82,6 +82,9 @@
 
      http://13.127.15.133:3000/
 
-     
+   ### To stop the cluster and to run the cluster:
+     --- To stop the cluster run below as 0
+     "aws ecs update-service --cluster node-ecs-cluster --service node-service --desired-count 0
 
-     aws ecs update-service --cluster node-ecs-cluster --service node-service --desired-count 0
+       --- To Start the cluster run below as {   2 = the number of tasks}
+     aws ecs update-service --cluster node-ecs-cluster --service node-service --desired-count 2
